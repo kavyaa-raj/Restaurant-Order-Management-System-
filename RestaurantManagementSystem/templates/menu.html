@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu Management</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🍔 Menu Management</h1>
+
+        <form action="/add_food" method="POST">
+
+            <input type="text"
+                   name="food_name"
+                   placeholder="Food Name"
+                   required>
+
+            <input type="text"
+                   name="category"
+                   placeholder="Category"
+                   required>
+
+            <input type="number"
+                   name="price"
+                   placeholder="Price"
+                   required>
+
+            <button type="submit">
+                Add Food
+            </button>
+
+        </form>
+
+        <h2>Food Menu</h2>
+
+        {% for item in food_items %}
+
+        <div class="food-card">
+
+    <h3>{{ item[1] }}</h3>
+
+    <p>Category: {{ item[2] }}</p>
+
+    <p>Price: ₹{{ item[3] }}</p>
+
+    <a href="/delete_food/{{ item[0] }}">
+        <button>Delete</button>
+    </a>
+
+</div>
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>

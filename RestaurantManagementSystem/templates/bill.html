@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bill</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🧾 Restaurant Bill</h1>
+
+    <div class="food-card">
+
+        <h3>Customer:
+            {{ order[0] }}
+        </h3>
+
+        <p>
+            Food:
+            {{ order[1] }}
+        </p>
+
+        <p>
+            Quantity:
+            {{ order[2] }}
+        </p>
+
+        <p>
+            Subtotal:
+            ₹{{ subtotal }}
+        </p>
+
+        <p>
+            GST (5%):
+            ₹{{ gst }}
+        </p>
+
+        <h2>
+            Final Amount:
+            ₹{{ final_amount }}
+        </h2>
+
+    </div>
+
+</div>
+
+</body>
+</html>
